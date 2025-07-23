@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using Emgu.CV;
+
 namespace CVForms.Controls
 {
     public partial class Math : UserControl
@@ -19,7 +21,7 @@ namespace CVForms.Controls
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (imageBox1.TextIsEnabled == true && imageBox2.TextIsEnabled == true)
+            if (cvImageBox1.FilePath != "" && cvImageBox2.FilePath != "")
             {
                 comboBox1.Enabled = true;
 
@@ -46,47 +48,30 @@ namespace CVForms.Controls
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Bitmap image1 = imageBox1.PictureBox.Image as Bitmap;
-            Bitmap image2 = imageBox2.PictureBox.Image as Bitmap;
+            Mat mat1 = CvInvoke.Imread(cvImageBox1.FilePath);
+            Mat mat2 = CvInvoke.Imread(cvImageBox2.FilePath);
+            Mat mat3 = new();
 
-            if(image1.Width != image2.Width || image1.Height != image2.Height)
+
+            MessageBox.Show(comboBox1.Text + "-ing");
+
+
+            switch (comboBox1.Text) 
             {
-                MessageBox.Show("Images must be of the same size for mathematical operations.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                case "AND":
+                    CvInvoke.BitwiseAnd(mat1, mat2, mat3);
+                    break;
+                case "OR":
+                    CvInvoke.BitwiseOr(mat1, mat2, mat3);
+                    break;
+                case "XOR":
+                    CvInvoke.BitwiseXor(mat1, mat2, mat3);
+                    break;
+                default:
+                    MessageBox.Show("Invalid operation selected.");
+                    return;
             }
-
-            Bitmap newImage = new Bitmap(image1.Width, image1.Height);
-
-            for(int y = 0; y < newImage.Height; y++) 
-            {
-                for(int x = 0; x < newImage.Width; x++) 
-                {
-                    Color pixel1 = image1.GetPixel(x, y);
-                    Color pixel2 = image2.GetPixel(x, y);
-
-                    int val; 
-                    switch (comboBox1.Text.ToUpper()) 
-                    {
-                        case "AND":
-                            val = pixel1.ToArgb() & pixel2.ToArgb();
-                            break;
-                        case "OR":
-                            val = pixel1.ToArgb() | pixel2.ToArgb();
-                            break;
-                        case "XOR":
-                            val = (pixel1.ToArgb() ^ pixel2.ToArgb()) | byte.MaxValue << 24;
-                            break;
-                        default:
-                            MessageBox.Show("Unsupported operation: " + comboBox1.Text, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
-                            
-                    }
-
-                    newImage.SetPixel(x, y, Color.FromArgb(val));
-                }
-            }
-
-            imageBox3.PictureBox.Image = newImage;
+            imageBox1.Image = mat3;
         }
     }
 }

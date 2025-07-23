@@ -26,6 +26,12 @@ namespace CVForms.Controls
             }
         }
 
+        public string FilePath
+        {
+            get => openFileDialog.FileName;
+            set { }
+        }
+
         public PictureBox PictureBox
         {
             get => pictureBox;

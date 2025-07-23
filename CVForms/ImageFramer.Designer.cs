@@ -28,29 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            rotate1 = new Controls.Rotate();
+            components = new System.ComponentModel.Container();
+            timer1 = new System.Windows.Forms.Timer(components);
+            math1 = new Controls.Math();
             SuspendLayout();
             // 
-            // rotate1
+            // timer1
             // 
-            rotate1.Location = new Point(12, 12);
-            rotate1.Name = "rotate1";
-            rotate1.Size = new Size(1162, 545);
-            rotate1.TabIndex = 0;
+            timer1.Enabled = true;
+            timer1.Tick += timer1_Tick;
+            // 
+            // math1
+            // 
+            math1.Location = new Point(12, 3);
+            math1.Name = "math1";
+            math1.Size = new Size(1384, 445);
+            math1.TabIndex = 0;
             // 
             // ImageFramer
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1437, 461);
-            Controls.Add(rotate1);
+            ClientSize = new Size(1426, 451);
+            Controls.Add(math1);
             Name = "ImageFramer";
             Text = "Form1";
             ResumeLayout(false);
         }
 
         #endregion
-
-        private Controls.Rotate rotate1;
+        private System.Windows.Forms.Timer timer1;
+        private Controls.Math math1;
     }
 }

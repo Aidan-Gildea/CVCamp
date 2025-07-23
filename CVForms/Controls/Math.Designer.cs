@@ -29,22 +29,14 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            imageBox1 = new ImageBox();
             comboBox1 = new ComboBox();
-            imageBox2 = new ImageBox();
-            imageBox3 = new ImageBox();
             button1 = new Button();
             timer1 = new System.Windows.Forms.Timer(components);
+            cvImageBox1 = new cvImageBox();
+            cvImageBox2 = new cvImageBox();
+            imageBox1 = new Emgu.CV.UI.ImageBox();
+            ((System.ComponentModel.ISupportInitialize)imageBox1).BeginInit();
             SuspendLayout();
-            // 
-            // imageBox1
-            // 
-            imageBox1.BorderStyle = BorderStyle.FixedSingle;
-            imageBox1.Location = new Point(18, 17);
-            imageBox1.Name = "imageBox1";
-            imageBox1.Size = new Size(339, 385);
-            imageBox1.TabIndex = 0;
-            imageBox1.TextIsEnabled = false;
             // 
             // comboBox1
             // 
@@ -54,24 +46,6 @@
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(128, 28);
             comboBox1.TabIndex = 1;
-            // 
-            // imageBox2
-            // 
-            imageBox2.BorderStyle = BorderStyle.FixedSingle;
-            imageBox2.Location = new Point(540, 17);
-            imageBox2.Name = "imageBox2";
-            imageBox2.Size = new Size(337, 385);
-            imageBox2.TabIndex = 2;
-            imageBox2.TextIsEnabled = false;
-            // 
-            // imageBox3
-            // 
-            imageBox3.BorderStyle = BorderStyle.FixedSingle;
-            imageBox3.Location = new Point(1048, 17);
-            imageBox3.Name = "imageBox3";
-            imageBox3.Size = new Size(338, 385);
-            imageBox3.TabIndex = 3;
-            imageBox3.TextIsEnabled = false;
             // 
             // button1
             // 
@@ -89,28 +63,54 @@
             timer1.Enabled = true;
             timer1.Tick += timer1_Tick;
             // 
+            // cvImageBox1
+            // 
+            cvImageBox1.BorderStyle = BorderStyle.FixedSingle;
+            cvImageBox1.Location = new Point(32, 25);
+            cvImageBox1.Name = "cvImageBox1";
+            cvImageBox1.Size = new Size(281, 371);
+            cvImageBox1.TabIndex = 5;
+            // 
+            // cvImageBox2
+            // 
+            cvImageBox2.BorderStyle = BorderStyle.FixedSingle;
+            cvImageBox2.Location = new Point(588, 25);
+            cvImageBox2.Name = "cvImageBox2";
+            cvImageBox2.Size = new Size(281, 371);
+            cvImageBox2.TabIndex = 6;
+            // 
+            // imageBox1
+            // 
+            imageBox1.BorderStyle = BorderStyle.FixedSingle;
+            imageBox1.Location = new Point(1076, 109);
+            imageBox1.Name = "imageBox1";
+            imageBox1.Size = new Size(269, 287);
+            imageBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            imageBox1.TabIndex = 2;
+            imageBox1.TabStop = false;
+            // 
             // Math
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(button1);
-            Controls.Add(imageBox3);
-            Controls.Add(imageBox2);
-            Controls.Add(comboBox1);
             Controls.Add(imageBox1);
+            Controls.Add(cvImageBox2);
+            Controls.Add(cvImageBox1);
+            Controls.Add(button1);
+            Controls.Add(comboBox1);
             Name = "Math";
-            Size = new Size(1482, 573);
+            Size = new Size(1388, 451);
             Load += Math_Load;
+            ((System.ComponentModel.ISupportInitialize)imageBox1).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
-
-        private ImageBox imageBox1;
         private ComboBox comboBox1;
-        private ImageBox imageBox2;
-        private ImageBox imageBox3;
         private Button button1;
         private System.Windows.Forms.Timer timer1;
+        private cvImageBox cvImageBox1;
+        private cvImageBox cvImageBox2;
+        private Emgu.CV.UI.ImageBox imageBox1;
     }
 }
