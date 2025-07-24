@@ -1,0 +1,18 @@
+The general architecture: 
+You have a window that allows you to add items into the window via a dropdown. 
+The first item that you would add into the dropdown is the math tab. 
+The math tab allows you to perform math operations on mats like and, or, xor, add, flips, etc. 
+
+
+The math tab contains three CVselectionboxes. Each CVselectionbox is a control that displays a mat and a dropdown
+for selection that can interact with the available mats from its private static readonly list of available mats. 
+Alternatively, you can add a new mat by double clicking on the imagebox and then giving it a name. 
+The name will then propogate throughout your application, as each CVselectionbox will update due 
+to the shared dictionary<string, Mat> availableMats. 
+
+Workflow: 
+User selects item from the dropdown. 
+The selected tab is displayed. 
+The user can interact with the tabs that are added to the windows. 
+The user performs operations on the mats using the math tab.
+
