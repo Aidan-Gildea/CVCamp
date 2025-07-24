@@ -28,25 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            math1 = new Controls.Math();
+            math1 = new CoolProject.Controls.Math();
             SuspendLayout();
             // 
             // math1
             // 
             math1.BorderStyle = BorderStyle.FixedSingle;
-            math1.Location = new Point(12, 12);
-            math1.MaximumSize = new Size(825, 366);
-            math1.MinimumSize = new Size(825, 366);
+            math1.Location = new Point(12, 10);
+            math1.Margin = new Padding(3, 2, 3, 2);
+            math1.MaximumSize = new Size(722, 275);
+            math1.MinimumSize = new Size(722, 275);
             math1.Name = "math1";
-            math1.Size = new Size(825, 366);
+            math1.Size = new Size(722, 275);
             math1.TabIndex = 0;
             // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(856, 395);
+            ClientSize = new Size(749, 296);
             Controls.Add(math1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "MainForm";
             Text = "Form1";
             ResumeLayout(false);

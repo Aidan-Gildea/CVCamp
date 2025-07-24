@@ -41,15 +41,46 @@ namespace CoolProject.Controls
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if(selectionBox1.Enabled && selectionBox2.Enabled) 
+            if (inputBox1.Enabled && inputBox2.Enabled)
             {
-                switch(comboBox1.Text)
+
+                switch (comboBox1.Text)
                 {
                     case "AND":
-                        CvInvoke.BitwiseAnd(selectionBox1.image, selectionBox2.image, selectionBox3.currentImage);
+                        CvInvoke.BitwiseAnd(inputBox1.CurrentImage, inputBox2.CurrentImage, outputBox1.CurrentImage);
                         break;
+                    case "OR":
+                        CvInvoke.BitwiseOr(inputBox1.CurrentImage, inputBox2.CurrentImage, outputBox1.CurrentImage);
+                        break;
+                    case "XOR":
+                        CvInvoke.BitwiseXor(inputBox1.CurrentImage, inputBox2.CurrentImage, outputBox1.CurrentImage);
+                        break;
+
+                    case "ADD":
+                        CvInvoke.Add(inputBox1.CurrentImage, inputBox2.CurrentImage, outputBox1.CurrentImage);
+                        break;
+
+                    case "SUBTRACT":
+                        CvInvoke.Subtract(inputBox1.CurrentImage, inputBox2.CurrentImage, outputBox1.CurrentImage);
+                        break;
+
+                    case "MULTIPLY":
+                        CvInvoke.Multiply(inputBox1.CurrentImage, inputBox2.CurrentImage, outputBox1.CurrentImage);
+                        break;
+
+                    case "DIVIDE":
+                        CvInvoke.Divide(inputBox1.CurrentImage, inputBox2.CurrentImage, outputBox1.CurrentImage);
+                        break;  
+                    default:
+                        return;
+                        
                 }
             }
+        }
+
+        private void TestTimer_Tick(object sender, EventArgs e)
+        {
+
         }
     }
 }

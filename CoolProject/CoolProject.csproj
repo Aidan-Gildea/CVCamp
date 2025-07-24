@@ -14,4 +14,8 @@
     <PackageReference Include="Emgu.CV.UI" Version="4.11.0.5746" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CVForms\CVForms.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,6 +1,6 @@
 ﻿namespace CoolProject.Controls
 {
-    partial class BackingControl
+    partial class CVIOBase
     {
         /// <summary> 
         /// Required designer variable.
