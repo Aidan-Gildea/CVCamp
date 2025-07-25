@@ -20,9 +20,9 @@ namespace CoolProject.Controls
 
         protected static readonly Dictionary<string, Mat> availableMats = new();
         
-        public bool Enabled
+        public bool isEnabled
         {
-            get => enabled;
+            get => !currentImage.Equals(new Mat());
             private set
             {
                 enabled = value;
