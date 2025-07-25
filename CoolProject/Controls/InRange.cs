@@ -60,12 +60,22 @@ namespace CoolProject.Controls
 
             if (!inputBox1.isEnabled) return;
 
-            Mat output = new Mat();
+            Mat output = new();
 
-            for (int i = 0; i < values.Length; i++) 
-            {
-                values[i] = Map(values[i], 0, sliders[i].MaxValue, 0, 255);
-            }
+            //for (int i = 0; i < values.Length; i++)
+            //{
+            //    values[i] = Map(values[i], 0, sliders[i].MaxValue, 0, 255);
+            //}
+
+            Mat[] channels = inputBox1.CurrentImage.Split();
+            var max = channels[0].ToImage<Gray, byte>().Data.Cast<byte>().Max();
+
+
+            values[1] = Map(values[1], 0, sliders[1].MaxValue, 0, 255);
+            values[2] = Map(values[2], 0, sliders[2].MaxValue, 0, 255);
+            values[4] = Map(values[4], 0, sliders[4].MaxValue, 0, 255);
+            values[5] = Map(values[5], 0, sliders[5].MaxValue, 0, 255);
+
 
             CvInvoke.InRange
                 (inputBox1.CurrentImage,

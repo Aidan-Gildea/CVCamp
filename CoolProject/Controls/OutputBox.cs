@@ -54,7 +54,7 @@ namespace CoolProject.Controls
                 {
                     if (!availableMats.ContainsKey(textBox1.Text))
                     {
-                        availableMats.Add(textBox1.Text, imageBox1.Image as Mat);
+                        availableMats.Add(textBox1.Text, currentImage);
                     }
                     else
                     {

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Emgu.CV;
+using Emgu.CV.Structure;
 
 namespace CoolProject.Controls
 {
@@ -55,6 +56,10 @@ namespace CoolProject.Controls
             else if(comboBox1.Text == "BGR" && comboBox2.Text == "HSV")
             {
                 CvInvoke.CvtColor(inputBox1.CurrentImage, outputBox1.CurrentImage, Emgu.CV.CvEnum.ColorConversion.Bgr2Hsv);
+
+                //Mat[] channels = outputBox1.CurrentImage.Split();
+                //var max = channels[0].ToImage<Gray, byte>().Data.Cast<byte>().Max();
+
             }
             else
             {
