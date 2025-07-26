@@ -62,13 +62,9 @@ namespace CoolProject.Controls
 
             Mat output = new();
 
-            //for (int i = 0; i < values.Length; i++)
-            //{
-            //    values[i] = Map(values[i], 0, sliders[i].MaxValue, 0, 255);
-            //}
-
-            Mat[] channels = inputBox1.CurrentImage.Split();
-            var max = channels[0].ToImage<Gray, byte>().Data.Cast<byte>().Max();
+            // Debug code...
+            //Mat[] channels = inputBox1.CurrentImage.Split();
+            //var max = channels[0].ToImage<Gray, byte>().Data.Cast<byte>().Max();
 
 
             values[1] = Map(values[1], 0, sliders[1].MaxValue, 0, 255);

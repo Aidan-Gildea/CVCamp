@@ -54,5 +54,10 @@ namespace CoolProject
         {
             flowLayoutPanel2.Controls.Add(new Controls.ConvertColorSpace());
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            flowLayoutPanel2.Controls.Add(new Controls.BlurOperation());
+        }
     }
 }
