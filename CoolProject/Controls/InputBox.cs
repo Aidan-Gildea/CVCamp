@@ -13,10 +13,14 @@ namespace CoolProject.Controls
 {
     public partial class InputBox : CVIOBase
     {
-
+        public event EventHandler ImageChanged;
         public Mat CurrentImage
         {
-            get => currentImage;
+            get 
+            {
+                currentImage = availableMats.ContainsKey(comboBox1.Text) ? availableMats[comboBox1.Text] : currentImage;
+                return currentImage; 
+            } 
             set
             {
                 currentImage = value;
@@ -67,7 +71,7 @@ namespace CoolProject.Controls
                 
                 
             }
-            imageBox1.Image = currentImage;
+            imageBox1.Image = CurrentImage;
         }
 
         private void comboBox1_DropDown(object sender, EventArgs e) // update items whenever you open dropdown

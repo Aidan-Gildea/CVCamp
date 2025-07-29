@@ -50,6 +50,7 @@
             inputBox1.Name = "inputBox1";
             inputBox1.Size = new Size(191, 208);
             inputBox1.TabIndex = 0;
+            inputBox1.Load += inputBox1_Load;
             // 
             // inputBox2
             // 

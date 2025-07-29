@@ -21,6 +21,10 @@ namespace CoolProject.Controls
             {
                 currentImage = value;
                 imageBox1.Image = currentImage;
+                if (availableMats.ContainsKey(textBox1.Text)) 
+                {
+                    availableMats[textBox1.Text] = value;
+                }
 
             }
         }

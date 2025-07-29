@@ -34,6 +34,7 @@
             outputBox1 = new OutputBox();
             button1 = new Button();
             slider1 = new Slider();
+            checkBox1 = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)imageBox1).BeginInit();
             SuspendLayout();
             // 
@@ -81,11 +82,22 @@
             slider1.Value = -5;
             slider1.InputChanged += slider1_InputChanged;
             // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Location = new Point(295, 261);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(98, 19);
+            checkBox1.TabIndex = 7;
+            checkBox1.Text = "VideoCapture";
+            checkBox1.UseVisualStyleBackColor = true;
+            // 
             // VCapture
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BorderStyle = BorderStyle.FixedSingle;
+            Controls.Add(checkBox1);
             Controls.Add(slider1);
             Controls.Add(button1);
             Controls.Add(outputBox1);
@@ -97,6 +109,7 @@
             Load += VCapture_Load;
             ((System.ComponentModel.ISupportInitialize)imageBox1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -105,5 +118,6 @@
         private OutputBox outputBox1;
         private Button button1;
         private Slider slider1;
+        private CheckBox checkBox1;
     }
 }

@@ -70,10 +70,10 @@ namespace CoolProject.Controls
 
                     case "DIVIDE":
                         CvInvoke.Divide(inputBox1.CurrentImage, inputBox2.CurrentImage, outputBox1.CurrentImage);
-                        break;  
+                        break;
                     default:
                         return;
-                        
+
                 }
             }
         }
@@ -81,6 +81,16 @@ namespace CoolProject.Controls
         private void TestTimer_Tick(object sender, EventArgs e)
         {
 
+        }
+
+        private void inputBox1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UpdateImage(object sender, EventArgs e) 
+        {
+           
         }
     }
 }

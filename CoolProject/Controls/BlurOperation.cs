@@ -54,9 +54,11 @@ namespace CoolProject.Controls
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            BlurType blurtype = (BlurType)comboBox1.SelectedItem;
-            blurtype.action((int)numericUpDown1.Value);
-
+            if(inputBox1.CurrentImage != null) 
+            {
+                BlurType blurtype = (BlurType)comboBox1.SelectedItem;
+                blurtype.action((int)numericUpDown1.Value);
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -64,6 +66,7 @@ namespace CoolProject.Controls
             if (inputBox1.isEnabled)
             {
                 comboBox1.Enabled = true;
+                //comboBox1_SelectedIndexChanged(sender, e);
             }
         }
     }
