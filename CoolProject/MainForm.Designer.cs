@@ -34,8 +34,9 @@
             button2 = new Button();
             button1 = new Button();
             button3 = new Button();
-            flowLayoutPanel2 = new FlowLayoutPanel();
             button4 = new Button();
+            button5 = new Button();
+            flowLayoutPanel2 = new FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -69,6 +70,7 @@
             flowLayoutPanel1.Controls.Add(button1);
             flowLayoutPanel1.Controls.Add(button3);
             flowLayoutPanel1.Controls.Add(button4);
+            flowLayoutPanel1.Controls.Add(button5);
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.Location = new Point(0, 0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -115,6 +117,26 @@
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
             // 
+            // button4
+            // 
+            button4.Location = new Point(3, 119);
+            button4.Name = "button4";
+            button4.Size = new Size(75, 23);
+            button4.TabIndex = 4;
+            button4.Text = "blur";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
+            // 
+            // button5
+            // 
+            button5.Location = new Point(3, 148);
+            button5.Name = "button5";
+            button5.Size = new Size(98, 26);
+            button5.TabIndex = 5;
+            button5.Text = "videocapture";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
+            // 
             // flowLayoutPanel2
             // 
             flowLayoutPanel2.AutoScroll = true;
@@ -124,16 +146,6 @@
             flowLayoutPanel2.Name = "flowLayoutPanel2";
             flowLayoutPanel2.Size = new Size(612, 694);
             flowLayoutPanel2.TabIndex = 0;
-            // 
-            // button4
-            // 
-            button4.Location = new Point(3, 119);
-            button4.Name = "button4";
-            button4.Size = new Size(75, 23);
-            button4.TabIndex = 4;
-            button4.Text = "button4";
-            button4.UseVisualStyleBackColor = true;
-            button4.Click += button4_Click;
             // 
             // MainForm
             // 
@@ -162,5 +174,6 @@
         private Button button2;
         private Button button3;
         private Button button4;
+        private Button button5;
     }
 }

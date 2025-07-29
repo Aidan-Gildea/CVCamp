@@ -43,6 +43,7 @@
             trackBar1.Name = "trackBar1";
             trackBar1.Size = new Size(143, 45);
             trackBar1.TabIndex = 0;
+            trackBar1.Scroll += trackBar1_Scroll;
             // 
             // numericUpDown1
             // 

@@ -59,5 +59,10 @@ namespace CoolProject
         {
             flowLayoutPanel2.Controls.Add(new Controls.BlurOperation());
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            flowLayoutPanel2.Controls.Add(new VCapture());
+        }
     }
 }

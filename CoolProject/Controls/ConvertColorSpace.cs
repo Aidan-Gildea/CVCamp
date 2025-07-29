@@ -31,14 +31,14 @@ namespace CoolProject.Controls
 
         private void ConvertColorSpace_Load(object sender, EventArgs e)
         {
-            string[] items = { "HSV", "BGR" };
+            string[] items = { "HSV", "BGR", "GREYSCALE" };
             foreach (var item in items)
             {
                 comboBox1.Items.Add(item);
                 comboBox2.Items.Add(item);
             }
-            comboBox1.SelectedIndex = 0;
-            comboBox2.SelectedIndex = 1;
+            comboBox1.SelectedIndex = 1;
+            comboBox2.SelectedIndex = 0;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -60,6 +60,10 @@ namespace CoolProject.Controls
                 //Mat[] channels = outputBox1.CurrentImage.Split();
                 //var max = channels[0].ToImage<Gray, byte>().Data.Cast<byte>().Max();
 
+            }
+            else if(comboBox1.Text == "BGR" && comboBox2.Text == "GREYSCALE") 
+            {
+                CvInvoke.CvtColor(inputBox1.CurrentImage, outputBox1.CurrentImage, Emgu.CV.CvEnum.ColorConversion.Bgr2Gray);
             }
             else
             {

@@ -13,16 +13,29 @@ namespace CoolProject.Controls
 {
     public partial class Slider : UserControl
     {
+        public event EventHandler InputChanged;
         public int MaxValue
         {
             get => trackBar1.Maximum;
-            set  
-                
+            set
+
             {
                 trackBar1.Maximum = value;
                 numericUpDown1.Maximum = value;
-                
-            } 
+
+            }
+        }
+
+        public int MinValue
+        {
+            get => trackBar1.Minimum;
+            set
+
+            {
+                trackBar1.Minimum = value;
+                numericUpDown1.Minimum = value;
+
+            }
         }
 
         public string Title
@@ -39,6 +52,8 @@ namespace CoolProject.Controls
                 if (value < trackBar1.Minimum || value > trackBar1.Maximum)
                     throw new ArgumentOutOfRangeException(nameof(value), "Value must be within the range of the slider.");
                 trackBar1.Value = value;
+
+
             }
         }
         public Slider()
@@ -49,13 +64,20 @@ namespace CoolProject.Controls
         private void timer1_Tick(object sender, EventArgs e)
         {
 
-            numericUpDown1.Value = trackBar1.Value;
 
         }
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
             trackBar1.Value = (int)numericUpDown1.Value;
+
+            InputChanged?.Invoke(this, e);
+        }
+
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            numericUpDown1.Value = trackBar1.Value;
+            InputChanged?.Invoke(this, e);
         }
     }
 }
