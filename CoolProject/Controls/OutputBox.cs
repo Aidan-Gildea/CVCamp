@@ -101,12 +101,6 @@ namespace CoolProject.Controls
 
         private void timer1_Tick_1(object sender, EventArgs e)
         {
-            if (!currentImage.Equals(new Mat()))
-            {
-                enabled = true;
-
-
-            }
             imageBox1.Image = currentImage;
         }
     }
