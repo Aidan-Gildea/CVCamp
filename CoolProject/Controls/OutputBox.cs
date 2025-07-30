@@ -103,7 +103,7 @@ namespace CoolProject.Controls
             if (!currentImage.Equals(new Mat()))
             {
                 enabled = true;
-
+                // :/
 
             }
             imageBox1.Image = currentImage;
