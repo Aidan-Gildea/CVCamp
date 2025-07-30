@@ -12,7 +12,7 @@ using Emgu.CV.Structure;
 
 namespace CoolProject.Controls
 {
-    public partial class ConvertColorSpace : UserControl
+    public partial class ConvertColorSpace : CVIOBase
     {
         public ConvertColorSpace()
         {

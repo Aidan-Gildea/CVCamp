@@ -1,6 +1,6 @@
 ﻿namespace CoolProject.Controls
 {
-    partial class CVIOBase
+    partial class IOBox
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,15 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            SuspendLayout();
-            // 
-            // CVIOBase
-            // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            Name = "CVIOBase";
-            Load += CVIOBase_Load;
-            ResumeLayout(false);
+            components = new System.ComponentModel.Container();
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         }
 
         #endregion

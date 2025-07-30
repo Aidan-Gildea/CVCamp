@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace CoolProject.Controls
 {
-    public partial class VCapture : UserControl
+    public partial class VCapture : CVIOBase
     {
         public VCapture()
         {

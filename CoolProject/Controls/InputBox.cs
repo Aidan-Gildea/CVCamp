@@ -5,33 +5,29 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CoolProject.Controls
 {
-    public partial class InputBox : CVIOBase
+    public partial class InputBox : IOBox
     {
-        public event EventHandler ImageChanged;
+        
 
         private readonly object MatLock = new();
         public Mat CurrentImage
         {
-            get 
+            get => currentImage;
+            set 
             {
-                currentImage = availableMats.ContainsKey(comboBox1.Text) ? availableMats[comboBox1.Text] : currentImage;
-                return currentImage; 
-            } 
-            set
-            {
-                lock (MatLock)
+                currentImage = value;
+                if (currentImage != null) 
                 {
-                    currentImage?.Dispose();
-                    currentImage = value;
-                }
-                imageBox1.Image = currentImage;
-            }
+                    imageBox1.Image = currentImage;
+                } 
+            } 
         }
 
         public InputBox()
@@ -63,12 +59,25 @@ namespace CoolProject.Controls
             {
                 if (availableMats.ContainsKey(comboBox1.Text))
                 { 
-                    CurrentImage = availableMats[comboBox1.Text];
+                    CurrentImage = availableMats[comboBox1.Text].mat;
                 }
                 
             }
         }
 
+        public override void UpdateImage()
+        {
+            if (availableMats.ContainsKey(comboBox1.Text)) 
+            {
+                // the text is valid 
+                if (availableMats[comboBox1.Text].isEdited) 
+                {
+                    CurrentImage = availableMats[comboBox1.Text].mat;
+
+                }
+            }
+
+        }
         private void timer1_Tick(object sender, EventArgs e)
         {
             //imageBox1.Image = CurrentImage;
