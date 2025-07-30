@@ -5,23 +5,39 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CoolProject.Controls
 {
-    public partial class InputBox : CVIOBase
+    public partial class InputBox : IOBox
     {
+<<<<<<< Updated upstream
+=======
+        
+>>>>>>> Stashed changes
 
         public Mat CurrentImage
         {
             get => currentImage;
+<<<<<<< Updated upstream
             set
             {
                 currentImage = value;
                 imageBox1.Image = currentImage;
             }
+=======
+            set 
+            {
+                currentImage = value;
+                if (currentImage != null) 
+                {
+                    imageBox1.Image = currentImage;
+                } 
+            } 
+>>>>>>> Stashed changes
         }
 
         public InputBox()
@@ -53,12 +69,25 @@ namespace CoolProject.Controls
             {
                 if (availableMats.ContainsKey(comboBox1.Text))
                 { 
-                    CurrentImage = availableMats[comboBox1.Text];
+                    CurrentImage = availableMats[comboBox1.Text].mat;
                 }
                 
             }
         }
 
+        public override void UpdateImage()
+        {
+            if (availableMats.ContainsKey(comboBox1.Text)) 
+            {
+                // the text is valid 
+                if (availableMats[comboBox1.Text].isEdited) 
+                {
+                    CurrentImage = availableMats[comboBox1.Text].mat;
+
+                }
+            }
+
+        }
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (!currentImage.Equals(new Mat()))

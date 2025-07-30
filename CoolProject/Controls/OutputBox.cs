@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace CoolProject.Controls
 {
-    public partial class OutputBox : CVIOBase
+    public partial class OutputBox : IOBox
     {
         
         public Mat CurrentImage
@@ -21,6 +21,13 @@ namespace CoolProject.Controls
             {
                 currentImage = value;
                 imageBox1.Image = currentImage;
+<<<<<<< Updated upstream
+=======
+                if (availableMats.ContainsKey(textBox1.Text)) 
+                {
+                    availableMats[textBox1.Text].mat = value;
+                }
+>>>>>>> Stashed changes
 
             }
         }
@@ -54,7 +61,11 @@ namespace CoolProject.Controls
                 {
                     if (!availableMats.ContainsKey(textBox1.Text))
                     {
+<<<<<<< Updated upstream
                         availableMats.Add(textBox1.Text, imageBox1.Image as Mat);
+=======
+                        //availableMats.Add(textBox1.Text, new()currentImage);
+>>>>>>> Stashed changes
                     }
                     else
                     {

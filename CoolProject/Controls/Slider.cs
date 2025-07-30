@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace CoolProject.Controls
 {
-    public partial class Slider : UserControl
+    public partial class Slider : CVIOBase
     {
         public int MaxValue
         {
