@@ -58,7 +58,7 @@ namespace CoolProject.Controls
                 slider6.Value 
             };
 
-            if (!inputBox1.isEnabled) return;
+            if (inputBox1.CurrentImage.Equals(new())) return;
 
             Mat output = new();
 

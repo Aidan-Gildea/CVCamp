@@ -19,6 +19,7 @@ namespace CoolProject.Controls
             get => currentImage;
             set
             {
+                currentImage?.Dispose();
                 currentImage = value;
                 imageBox1.Image = currentImage;
                 if (availableMats.ContainsKey(textBox1.Text)) 

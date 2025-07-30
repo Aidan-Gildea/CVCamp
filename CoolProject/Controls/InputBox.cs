@@ -14,6 +14,8 @@ namespace CoolProject.Controls
     public partial class InputBox : CVIOBase
     {
         public event EventHandler ImageChanged;
+
+        private readonly object MatLock = new();
         public Mat CurrentImage
         {
             get 
@@ -23,7 +25,11 @@ namespace CoolProject.Controls
             } 
             set
             {
-                currentImage = value;
+                lock (MatLock)
+                {
+                    currentImage?.Dispose();
+                    currentImage = value;
+                }
                 imageBox1.Image = currentImage;
             }
         }
@@ -65,13 +71,7 @@ namespace CoolProject.Controls
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (!currentImage.Equals(new Mat()))
-            {
-                enabled = true;
-                
-                
-            }
-            imageBox1.Image = CurrentImage;
+            //imageBox1.Image = CurrentImage;
         }
 
         private void comboBox1_DropDown(object sender, EventArgs e) // update items whenever you open dropdown

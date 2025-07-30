@@ -35,8 +35,8 @@ namespace CoolProject.Controls
             {
                 return;
             }
-            using Mat currentFrame = capture.QueryFrame(); // exposure currently not set. 
-            outputBox1.CurrentImage = currentFrame.Clone();
+            Mat currentFrame = capture.QueryFrame(); // exposure currently not set. 
+            outputBox1.CurrentImage = currentFrame;
         }
 
         private void GrabFrameWhileIdle(object sender, EventArgs e)
@@ -54,7 +54,7 @@ namespace CoolProject.Controls
 
             if (checkBox1.Checked) 
             {
-                GetImage();
+                outputBox1.CurrentImage = currentFrame;
             }
         }
 
