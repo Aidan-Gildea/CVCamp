@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace CoolProject.Controls
 {
-    public partial class InputBox : CVIOBase
+    public partial class InputBox : IOBack
     {
         public event EventHandler ImageChanged;
         public Mat CurrentImage

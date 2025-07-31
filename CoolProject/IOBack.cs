@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace CoolProject
 {
-    public partial class InputOutputBack : CVIOBase
+    public partial class IOBack : CVIOBase
     {
-        public InputOutputBack()
+        public IOBack()
         {
             InitializeComponent();
         }
@@ -33,8 +33,16 @@ namespace CoolProject
 
         private void InputOutputBack_Load(object sender, EventArgs e)
         {
-
             AutoSize = false;
+
+            if(this is OutputBox oBox) 
+            {
+                outputs.Add(oBox);
+            }
+            else if(this is InputBox iBox) // must be output box 
+            {
+                outputs.Add(iBox);
+            }
         }
         public void UpdateAvailableMats(object sender, OutputNameMatHandler e)
         {

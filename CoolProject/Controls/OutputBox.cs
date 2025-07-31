@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace CoolProject.Controls
 {
-    public partial class OutputBox : InputOutputBack
+    public partial class OutputBox : IOBack
     {
         public event EventHandler ImageChanged;
         public event EventHandler<OutputNameMatHandler> NameChanged;

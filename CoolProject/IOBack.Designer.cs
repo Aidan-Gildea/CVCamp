@@ -1,6 +1,6 @@
 ﻿namespace CoolProject
 {
-    partial class InputOutputBack
+    partial class IOBack
     {
         /// <summary> 
         /// Required designer variable.
