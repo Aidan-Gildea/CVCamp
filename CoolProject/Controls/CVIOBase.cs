@@ -19,6 +19,8 @@ namespace CoolProject.Controls
         protected bool enabled = false;
 
         protected static readonly Dictionary<string, Mat> availableMats = new();
+        protected static readonly List<UserControl> inputs = new List<UserControl>();
+        protected static readonly List<UserControl> outputs = new List<UserControl>();
         
         public bool isEnabled
         {
@@ -33,9 +35,10 @@ namespace CoolProject.Controls
         {
             InitializeComponent();
 
-            this.AutoSize = false;
         }
 
+        // works 
+        
         
 
     }

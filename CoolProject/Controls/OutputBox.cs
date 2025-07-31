@@ -11,9 +11,13 @@ using System.Windows.Forms;
 
 namespace CoolProject.Controls
 {
-    public partial class OutputBox : CVIOBase
+    public partial class OutputBox : InputOutputBack
     {
-        
+        public event EventHandler ImageChanged;
+        public event EventHandler<OutputNameMatHandler> NameChanged;
+
+        private string previousName = null;
+
         public Mat CurrentImage
         {
             get => currentImage;
@@ -21,11 +25,8 @@ namespace CoolProject.Controls
             {
                 currentImage = value;
                 imageBox1.Image = currentImage;
-                if (availableMats.ContainsKey(textBox1.Text)) 
-                {
-                    availableMats[textBox1.Text] = value;
-                }
 
+                ImageChanged?.Invoke(this, EventArgs.Empty);
             }
         }
 
@@ -34,69 +35,19 @@ namespace CoolProject.Controls
             InitializeComponent();
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ;
-        }
 
-        private void comboBox1_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            ;
-        }
-
-        private void comboBox1_TextUpdate(object sender, EventArgs e)
-        {
-
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            string currName = textBox1.Text;
+            Mat currMat = CurrentImage.Clone();
 
-            if (textBox1.Text.Length > 0)
-            {
-                if (imageBox1.Image != null)
-                {
-                    if (!availableMats.ContainsKey(textBox1.Text))
-                    {
-                        availableMats.Add(textBox1.Text, currentImage);
-                    }
-                    else
-                    {
-                        MessageBox.Show("This already exists buddy");
-                    }
-                }
-            }
+            OutputNameMatHandler nameMatHandler = new(currName, previousName, currMat);
+
+            NameChanged?.Invoke(this, nameMatHandler);
+            previousName = currName;
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_DropDown(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_DropDownClosed(object sender, EventArgs e)
-        {
-
-        }
-
-        private void imageBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void OutputBox_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void timer1_Tick_1(object sender, EventArgs e)
         {
@@ -107,6 +58,11 @@ namespace CoolProject.Controls
 
             }
             imageBox1.Image = currentImage;
+        }
+
+        private void OutputBox_Load(object sender, EventArgs e)
+        {
+            NameChanged += UpdateAvailableMats;
         }
     }
 }

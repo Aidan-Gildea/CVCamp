@@ -69,5 +69,15 @@ namespace CoolProject
         {
             flowLayoutPanel2.Controls.Add(new GetContours());
         }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            flowLayoutPanel2.Controls.Add(new OutputBox());
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            flowLayoutPanel2.Controls.Add(new InputBox());
+        }
     }
 }

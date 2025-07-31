@@ -45,6 +45,11 @@ namespace CoolProject.Controls
 
         }
 
+
+        public void DoWork() 
+        {
+            
+        }
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) { }
 
         private void comboBox1_SelectionChangeCommitted(object sender, EventArgs e) { }

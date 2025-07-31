@@ -1,18 +1,18 @@
-The general architecture: 
-You have a window that allows you to add items into the window via a dropdown. 
-The first item that you would add into the dropdown is the math tab. 
-The math tab allows you to perform math operations on mats like and, or, xor, add, flips, etc. 
+Todo:
+Make an event in the output box. When the currentImage of the outputBox is set, it invokes the event. 
 
+OutputBoxes add themselves to the public static list of output boxes
+InputBoxes add themselves to the public static list of input boxes
 
-The math tab contains three CVselectionboxes. Each CVselectionbox is a control that displays a mat and a dropdown
-for selection that can interact with the available mats from its private static readonly list of available mats. 
-Alternatively, you can add a new mat by double clicking on the imagebox and then giving it a name. 
-The name will then propogate throughout your application, as each CVselectionbox will update due 
-to the shared dictionary<string, Mat> availableMats. 
+When an output box adds itself into the list, it iterates through all input boxes and subscribes them to its event
+Input boxes have an event inside their CurrentImage that invokes their ImageChanged event. 
+Subscribe an event inside each control to the inputbox imagechanged, so that when the image changes, 
+it calls the event that does the DoWork function of the control.
 
-Workflow: 
-User selects item from the dropdown. 
-The selected tab is displayed. 
-The user can interact with the tabs that are added to the windows. 
-The user performs operations on the mats using the math tab.
+All controls inherit from the CVIOBase 
+
+EventArgs is generic, so you can put Mat inside public event EventArgs<Mat> myEvent; 
+
+For the Add of the outputBox, you have the event outputNameChanged<OutputNameChanged> with a generic of a class
+that holds oldname, newname and mat. This is so that it can assign the newname and kill the old one in the dict. 
 

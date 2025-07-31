@@ -38,17 +38,18 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(11, 14);
+            textBox1.Location = new Point(13, 19);
+            textBox1.Margin = new Padding(3, 4, 3, 4);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(94, 23);
+            textBox1.Size = new Size(107, 27);
             textBox1.TabIndex = 0;
-            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // button1
             // 
-            button1.Location = new Point(111, 15);
+            button1.Location = new Point(127, 20);
+            button1.Margin = new Padding(3, 4, 3, 4);
             button1.Name = "button1";
-            button1.Size = new Size(63, 22);
+            button1.Size = new Size(72, 29);
             button1.TabIndex = 1;
             button1.Text = "Add";
             button1.UseVisualStyleBackColor = true;
@@ -57,15 +58,15 @@
             // imageBox1
             // 
             imageBox1.BorderStyle = BorderStyle.FixedSingle;
-            imageBox1.Location = new Point(12, 43);
-            imageBox1.MaximumSize = new Size(162, 147);
-            imageBox1.MinimumSize = new Size(162, 147);
+            imageBox1.Location = new Point(14, 57);
+            imageBox1.Margin = new Padding(3, 4, 3, 4);
+            imageBox1.MaximumSize = new Size(185, 195);
+            imageBox1.MinimumSize = new Size(185, 195);
             imageBox1.Name = "imageBox1";
-            imageBox1.Size = new Size(162, 147);
+            imageBox1.Size = new Size(185, 195);
             imageBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             imageBox1.TabIndex = 2;
             imageBox1.TabStop = false;
-            imageBox1.Click += imageBox1_Click;
             // 
             // timer1
             // 
@@ -74,14 +75,15 @@
             // 
             // OutputBox
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BorderStyle = BorderStyle.FixedSingle;
             Controls.Add(imageBox1);
             Controls.Add(button1);
             Controls.Add(textBox1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "OutputBox";
-            Size = new Size(189, 206);
+            Size = new Size(216, 275);
             Load += OutputBox_Load;
             ((System.ComponentModel.ISupportInitialize)imageBox1).EndInit();
             ResumeLayout(false);
