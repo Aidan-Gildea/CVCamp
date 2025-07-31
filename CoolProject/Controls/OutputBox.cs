@@ -13,19 +13,21 @@ namespace CoolProject.Controls
 {
     public partial class OutputBox : CVIOBase
     {
+        public event EventHandler ImageChanged;
         
         public Mat CurrentImage
         {
             get => currentImage;
             set
             {
+                currentImage?.Dispose();
                 currentImage = value;
                 imageBox1.Image = currentImage;
                 if (availableMats.ContainsKey(textBox1.Text)) 
                 {
                     availableMats[textBox1.Text] = value;
                 }
-
+                ImageChanged?.Invoke(this, EventArgs.Empty);
             }
         }
 

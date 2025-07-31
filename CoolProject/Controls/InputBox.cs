@@ -16,15 +16,21 @@ namespace CoolProject.Controls
         public event EventHandler ImageChanged;
         public Mat CurrentImage
         {
-            get 
+            get
             {
-                currentImage = availableMats.ContainsKey(comboBox1.Text) ? availableMats[comboBox1.Text] : currentImage;
-                return currentImage; 
-            } 
+                // here this is updating to the value
+
+                UpdateCurrentImage();
+                return currentImage;
+
+            }
             set
             {
+                //currentImage?.Dispose();
                 currentImage = value;
                 imageBox1.Image = currentImage;
+                ImageChanged?.Invoke(this, EventArgs.Empty);
+                //ImageChanged?.Invoke(this, new EventArgs());
             }
         }
 
@@ -33,6 +39,7 @@ namespace CoolProject.Controls
             InitializeComponent();
         }
 
+        private void UpdateCurrentImage() => CurrentImage = availableMats.ContainsKey(comboBox1.Text) ? availableMats[comboBox1.Text] : currentImage;
         private void imageBox1_Click(object sender, EventArgs e)
         {
             DialogResult result = openFileDialog1.ShowDialog();
@@ -53,13 +60,13 @@ namespace CoolProject.Controls
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(comboBox1.Text.Length > 0)
+            if (comboBox1.Text.Length > 0)
             {
                 if (availableMats.ContainsKey(comboBox1.Text))
-                { 
+                {
                     CurrentImage = availableMats[comboBox1.Text];
                 }
-                
+
             }
         }
 
@@ -68,10 +75,11 @@ namespace CoolProject.Controls
             if (!currentImage.Equals(new Mat()))
             {
                 enabled = true;
-                
-                
+
+
             }
-            imageBox1.Image = CurrentImage;
+            
+
         }
 
         private void comboBox1_DropDown(object sender, EventArgs e) // update items whenever you open dropdown
@@ -86,5 +94,10 @@ namespace CoolProject.Controls
         }
 
         private void comboBox1_DropDownClosed(object sender, EventArgs e) { }
+
+        private void InputBox_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -17,6 +17,7 @@ namespace CoolProject.Controls
         public ConvertColorSpace()
         {
             InitializeComponent();
+
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -31,6 +32,7 @@ namespace CoolProject.Controls
 
         private void ConvertColorSpace_Load(object sender, EventArgs e)
         {
+            inputBox1.ImageChanged += button1_Click;
             string[] items = { "HSV", "BGR", "GREYSCALE" };
             foreach (var item in items)
             {
@@ -55,6 +57,7 @@ namespace CoolProject.Controls
             }
             else if(comboBox1.Text == "BGR" && comboBox2.Text == "HSV")
             {
+                
                 CvInvoke.CvtColor(inputBox1.CurrentImage, outputBox1.CurrentImage, Emgu.CV.CvEnum.ColorConversion.Bgr2Hsv);
 
                 //Mat[] channels = outputBox1.CurrentImage.Split();

@@ -40,10 +40,9 @@
             // imageBox1
             // 
             imageBox1.BorderStyle = BorderStyle.FixedSingle;
-            imageBox1.Location = new Point(15, 41);
-            imageBox1.Margin = new Padding(3, 2, 3, 2);
+            imageBox1.Location = new Point(17, 55);
             imageBox1.Name = "imageBox1";
-            imageBox1.Size = new Size(162, 147);
+            imageBox1.Size = new Size(185, 195);
             imageBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             imageBox1.TabIndex = 2;
             imageBox1.TabStop = false;
@@ -60,10 +59,9 @@
             // 
             // button1
             // 
-            button1.Location = new Point(114, 15);
-            button1.Margin = new Padding(3, 2, 3, 2);
+            button1.Location = new Point(130, 20);
             button1.Name = "button1";
-            button1.Size = new Size(63, 22);
+            button1.Size = new Size(72, 29);
             button1.TabIndex = 6;
             button1.Text = "Get";
             button1.UseVisualStyleBackColor = true;
@@ -73,27 +71,26 @@
             // 
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(14, 14);
-            comboBox1.Margin = new Padding(3, 2, 3, 2);
+            comboBox1.Location = new Point(16, 19);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(94, 23);
+            comboBox1.Size = new Size(107, 28);
             comboBox1.TabIndex = 7;
             comboBox1.DropDown += comboBox1_DropDown;
             comboBox1.DropDownClosed += comboBox1_DropDownClosed;
             // 
             // InputBox
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BorderStyle = BorderStyle.FixedSingle;
             Controls.Add(comboBox1);
             Controls.Add(button1);
             Controls.Add(imageBox1);
-            Margin = new Padding(3, 2, 3, 2);
-            MaximumSize = new Size(189, 206);
-            MinimumSize = new Size(189, 206);
+            MaximumSize = new Size(216, 274);
+            MinimumSize = new Size(216, 274);
             Name = "InputBox";
-            Size = new Size(187, 204);
+            Size = new Size(214, 272);
+            Load += InputBox_Load;
             ((System.ComponentModel.ISupportInitialize)imageBox1).EndInit();
             ResumeLayout(false);
         }
