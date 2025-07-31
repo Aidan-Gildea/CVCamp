@@ -21,6 +21,8 @@ namespace CoolProject.Controls
         protected static readonly Dictionary<string, Mat> availableMats = new();
         protected static readonly List<IOBack> inputs = new List<IOBack>();
         protected static readonly List<IOBack> outputs = new List<IOBack>();
+
+        
         
         public bool isEnabled
         {
@@ -34,7 +36,6 @@ namespace CoolProject.Controls
         public CVIOBase()
         {
             InitializeComponent();
-
         }
 
         // works 

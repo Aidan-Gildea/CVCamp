@@ -35,16 +35,21 @@ namespace CoolProject
         {
             AutoSize = false;
 
-            if(this is OutputBox oBox) 
-            {
-                outputs.Add(oBox);
-            }
-            else if(this is InputBox iBox) // must be output box 
-            {
-                outputs.Add(iBox);
-            }
+            //if (this is OutputBox oBox)
+            //{
+            //    outputs.Add(oBox);
+            //    foreach (InputBox i in inputs)
+            //    {
+            //        i.SubscribeToOutputs();
+            //    }
+
+            //}
+            //else if (this is InputBox iBox) // must be output box 
+            //{
+            //    outputs.Add(iBox);
+            //}
         }
-        public void UpdateAvailableMats(object sender, OutputNameMatHandler e)
+        public void UpdateName(object sender, OutputNameMatHandler e)
         {
             if (e.CurrentName == e.PreviousName) return;
 

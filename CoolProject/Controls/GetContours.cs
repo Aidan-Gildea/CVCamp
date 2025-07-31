@@ -14,7 +14,7 @@ using System.Windows.Forms;
 
 namespace CoolProject.Controls
 {
-    public partial class GetContours : UserControl
+    public partial class GetContours : CVIOBase
     {
         private Color currentColor = Color.Blue;
         private int lineThickness => (int)numericUpDown1.Value;

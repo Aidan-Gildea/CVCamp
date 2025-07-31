@@ -16,13 +16,10 @@ namespace CoolProject.Controls
         public event EventHandler ImageChanged;
         public Mat CurrentImage
         {
-            get 
-            {
-                currentImage = availableMats.ContainsKey(comboBox1.Text) ? availableMats[comboBox1.Text] : currentImage;
-                return currentImage; 
-            } 
+            get => currentImage;
             set
             {
+                // possibly add a dispose here for memory leaks. 
                 currentImage = value;
                 imageBox1.Image = currentImage;
             }
@@ -46,9 +43,9 @@ namespace CoolProject.Controls
         }
 
 
-        public void DoWork() 
+        public void DoWork()
         {
-            
+
         }
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) { }
 
@@ -58,13 +55,13 @@ namespace CoolProject.Controls
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(comboBox1.Text.Length > 0)
+            if (comboBox1.Text.Length > 0)
             {
                 if (availableMats.ContainsKey(comboBox1.Text))
-                { 
+                {
                     CurrentImage = availableMats[comboBox1.Text];
                 }
-                
+
             }
         }
 
@@ -73,8 +70,8 @@ namespace CoolProject.Controls
             if (!currentImage.Equals(new Mat()))
             {
                 enabled = true;
-                
-                
+
+
             }
             imageBox1.Image = CurrentImage;
         }
@@ -91,5 +88,22 @@ namespace CoolProject.Controls
         }
 
         private void comboBox1_DropDownClosed(object sender, EventArgs e) { }
+
+        public void SubscribeToOutputs()
+        {
+            foreach(OutputBox o in outputs) 
+            {
+                o.ImageChanged += ImageChanged;
+            }
+        }
+        private void InputBox_Load(object sender, EventArgs e)
+        {
+            ImageChanged += UpdateImage;
+        }
+
+        private void UpdateImage(object sender, EventArgs e) 
+        {
+            this.CurrentImage = availableMats.ContainsKey(comboBox1.Text) ? availableMats[comboBox1.Text] : currentImage;
+        }
     }
 }

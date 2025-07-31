@@ -12,7 +12,7 @@ using Emgu.CV.Structure;
 
 namespace CoolProject.Controls
 {
-    public partial class ConvertColorSpace : UserControl
+    public partial class ConvertColorSpace : CVIOBase
     {
         public ConvertColorSpace()
         {
@@ -55,7 +55,9 @@ namespace CoolProject.Controls
             }
             else if(comboBox1.Text == "BGR" && comboBox2.Text == "HSV")
             {
-                CvInvoke.CvtColor(inputBox1.CurrentImage, outputBox1.CurrentImage, Emgu.CV.CvEnum.ColorConversion.Bgr2Hsv);
+                using Mat newMat = new();
+                CvInvoke.CvtColor(inputBox1.CurrentImage, newMat, Emgu.CV.CvEnum.ColorConversion.Bgr2Hsv);
+                outputBox1.CurrentImage = newMat.Clone();
 
                 //Mat[] channels = outputBox1.CurrentImage.Split();
                 //var max = channels[0].ToImage<Gray, byte>().Data.Cast<byte>().Max();

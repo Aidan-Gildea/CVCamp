@@ -12,7 +12,7 @@ using Emgu.CV.Structure;
 
 namespace CoolProject.Controls
 {
-    public partial class InRange : UserControl
+    public partial class InRange : CVIOBase
     {
         int Map(int val, int accMin, int accMax, int otherMin, int otherMax) 
         {

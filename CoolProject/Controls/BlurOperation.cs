@@ -14,7 +14,7 @@ using Emgu.CV;
 namespace CoolProject.Controls
 {
 
-    public partial class BlurOperation : UserControl
+    public partial class BlurOperation : CVIOBase
     {
         public class BlurType
 

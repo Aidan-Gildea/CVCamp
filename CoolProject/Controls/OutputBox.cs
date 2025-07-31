@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,6 +16,7 @@ namespace CoolProject.Controls
     {
         public event EventHandler ImageChanged;
         public event EventHandler<OutputNameMatHandler> NameChanged;
+        public event EventHandler OutputAdded; 
 
         private string previousName = null;
 
@@ -25,6 +27,8 @@ namespace CoolProject.Controls
             {
                 currentImage = value;
                 imageBox1.Image = currentImage;
+
+                UpdateAvailableMats();
 
                 ImageChanged?.Invoke(this, EventArgs.Empty);
             }
@@ -62,7 +66,17 @@ namespace CoolProject.Controls
 
         private void OutputBox_Load(object sender, EventArgs e)
         {
-            NameChanged += UpdateAvailableMats;
+            NameChanged += UpdateName;
+            OutputAdded?.Invoke(this, new());
+        }
+
+        private void UpdateAvailableMats() 
+        {
+            string currentName = textBox1.Text;
+            if (availableMats.ContainsKey(currentName))
+            {
+                availableMats[currentName] = CurrentImage;
+            } 
         }
     }
 }

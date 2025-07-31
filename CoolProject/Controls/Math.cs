@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace CoolProject.Controls
 {
-    public partial class Math : UserControl
+    public partial class Math : CVIOBase
     {
         List<string> operations = new List<string>()
         {
