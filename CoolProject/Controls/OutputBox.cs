@@ -68,6 +68,7 @@ namespace CoolProject.Controls
         {
             NameChanged += UpdateName;
             OutputAdded?.Invoke(this, new());
+            
         }
 
         private void UpdateAvailableMats() 

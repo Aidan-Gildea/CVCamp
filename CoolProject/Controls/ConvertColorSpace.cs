@@ -39,10 +39,13 @@ namespace CoolProject.Controls
             }
             comboBox1.SelectedIndex = 1;
             comboBox2.SelectedIndex = 0;
+
+            inputBox1.ImageChanged += button1_Click;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (inputBox1.CurrentImage.Equals( new Mat())) return; 
             if(comboBox1.SelectedIndex == comboBox2.SelectedIndex)
             {
                 MessageBox.Show("Please select different color spaces for conversion.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -65,6 +68,7 @@ namespace CoolProject.Controls
             }
             else if(comboBox1.Text == "BGR" && comboBox2.Text == "GREYSCALE") 
             {
+                
                 CvInvoke.CvtColor(inputBox1.CurrentImage, outputBox1.CurrentImage, Emgu.CV.CvEnum.ColorConversion.Bgr2Gray);
             }
             else

@@ -93,17 +93,30 @@ namespace CoolProject.Controls
         {
             foreach(OutputBox o in outputs) 
             {
-                o.ImageChanged += ImageChanged;
+                o.ImageChanged += CallImageChanged;
             }
         }
         private void InputBox_Load(object sender, EventArgs e)
         {
+            // image changed event isn't working because I can't subscribe event to event. 
             ImageChanged += UpdateImage;
+        }
+
+        private void CallImageChanged(object sender, EventArgs e) 
+        {
+            ImageChanged?.Invoke(this, new());
         }
 
         private void UpdateImage(object sender, EventArgs e) 
         {
-            this.CurrentImage = availableMats.ContainsKey(comboBox1.Text) ? availableMats[comboBox1.Text] : currentImage;
+            if (comboBox1.Text.Length > 0)
+            {
+                if (availableMats.ContainsKey(comboBox1.Text))
+                {
+                    CurrentImage = availableMats[comboBox1.Text];
+                }
+
+            }
         }
     }
 }
