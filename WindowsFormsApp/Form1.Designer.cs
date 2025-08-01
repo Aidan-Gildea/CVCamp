@@ -28,12 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            components = new System.ComponentModel.Container();
+            imageBox1 = new Emgu.CV.UI.ImageBox();
+            ((System.ComponentModel.ISupportInitialize)imageBox1).BeginInit();
+            SuspendLayout();
+            // 
+            // imageBox1
+            // 
+            imageBox1.Location = new Point(12, 12);
+            imageBox1.Name = "imageBox1";
+            imageBox1.Size = new Size(75, 23);
+            imageBox1.TabIndex = 2;
+            imageBox1.TabStop = false;
+            // 
+            // Form1
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(728, 501);
+            Controls.Add(imageBox1);
+            Name = "Form1";
+            Text = "Form1";
+            Load += Form1_Load;
+            ((System.ComponentModel.ISupportInitialize)imageBox1).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Emgu.CV.UI.ImageBox imageBox1;
     }
 }
