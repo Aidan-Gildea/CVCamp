@@ -42,39 +42,44 @@
             // 
             outputBox1.BorderStyle = BorderStyle.FixedSingle;
             outputBox1.CurrentImage = (Emgu.CV.Mat)resources.GetObject("outputBox1.CurrentImage");
-            outputBox1.Location = new Point(327, 11);
+            outputBox1.Location = new Point(374, 15);
+            outputBox1.Margin = new Padding(3, 5, 3, 5);
+            outputBox1.myParent = this;
             outputBox1.Name = "outputBox1";
-            outputBox1.Size = new Size(189, 206);
+            outputBox1.Size = new Size(216, 274);
             outputBox1.TabIndex = 0;
             // 
             // inputBox1
             // 
             inputBox1.BorderStyle = BorderStyle.FixedSingle;
             inputBox1.CurrentImage = (Emgu.CV.Mat)resources.GetObject("inputBox1.CurrentImage");
-            inputBox1.Location = new Point(23, 11);
-            inputBox1.Margin = new Padding(3, 2, 3, 2);
-            inputBox1.MaximumSize = new Size(189, 206);
-            inputBox1.MinimumSize = new Size(189, 206);
+            inputBox1.Location = new Point(26, 15);
+            inputBox1.MaximumSize = new Size(216, 274);
+            inputBox1.MinimumSize = new Size(216, 274);
+            inputBox1.myParent = this;
             inputBox1.Name = "inputBox1";
-            inputBox1.Size = new Size(189, 206);
+            inputBox1.Size = new Size(216, 274);
             inputBox1.TabIndex = 1;
             // 
             // comboBox1
             // 
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(224, 118);
+            comboBox1.Location = new Point(256, 157);
+            comboBox1.Margin = new Padding(3, 4, 3, 4);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(87, 23);
+            comboBox1.Size = new Size(99, 28);
             comboBox1.TabIndex = 2;
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // numericUpDown1
             // 
-            numericUpDown1.Location = new Point(266, 89);
+            numericUpDown1.Increment = new decimal(new int[] { 2, 0, 0, 0 });
+            numericUpDown1.Location = new Point(304, 119);
+            numericUpDown1.Margin = new Padding(3, 4, 3, 4);
             numericUpDown1.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(43, 23);
+            numericUpDown1.Size = new Size(49, 27);
             numericUpDown1.TabIndex = 3;
             numericUpDown1.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
@@ -85,15 +90,16 @@
             // 
             // BlurOperation
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BorderStyle = BorderStyle.FixedSingle;
             Controls.Add(numericUpDown1);
             Controls.Add(comboBox1);
             Controls.Add(inputBox1);
             Controls.Add(outputBox1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "BlurOperation";
-            Size = new Size(532, 238);
+            Size = new Size(608, 317);
             Load += BlurOperation_Load;
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ResumeLayout(false);

@@ -34,6 +34,9 @@ namespace CoolProject.Controls
             numericUpDown1.Minimum = 1;
             numericUpDown1.Maximum = 10;
             numericUpDown1.Value = 1;
+
+            inputBox1.ImageChanged += button2_Click;
+            inputBox2.ImageChanged += button2_Click;
         }
 
         private Emgu.CV.CvEnum.ChainApproxMethod GetApproxMethod() 
@@ -48,7 +51,7 @@ namespace CoolProject.Controls
 
         private void button2_Click(object sender, EventArgs e) // draw contours
         {
-            if (inputBox1.CurrentImage != null && inputBox2.CurrentImage != null)
+            if (inputBox1.isEnabled && inputBox2.isEnabled)
             {
                 VectorOfVectorOfPoint contours = new();
                 Mat heirarchy = new Mat();
@@ -58,7 +61,7 @@ namespace CoolProject.Controls
                 Mat bgimage = inputBox2.CurrentImage.Clone();
 
                 CvInvoke.DrawContours(bgimage, contours, -1, new MCvScalar(255,0,0), lineThickness);
-
+                
                 outputBox1.CurrentImage = bgimage;
             }
 

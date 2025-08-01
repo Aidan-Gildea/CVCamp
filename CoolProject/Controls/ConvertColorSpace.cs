@@ -45,31 +45,48 @@ namespace CoolProject.Controls
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (inputBox1.CurrentImage.Equals( new Mat())) return; 
-            if(comboBox1.SelectedIndex == comboBox2.SelectedIndex)
+            if (inputBox1.CurrentImage.Equals(new Mat())) return;
+            if (comboBox1.SelectedIndex == comboBox2.SelectedIndex)
             {
                 MessageBox.Show("Please select different color spaces for conversion.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if(comboBox1.Text == "HSV" && comboBox2.Text == "BGR")
+            using Mat newMat = new();
+
+            if (comboBox1.Text == "HSV" && comboBox2.Text == "BGR")
             {
-                CvInvoke.CvtColor(inputBox1.CurrentImage, outputBox1.CurrentImage, Emgu.CV.CvEnum.ColorConversion.Hsv2Bgr);
+                CvInvoke.CvtColor(inputBox1.CurrentImage, newMat, Emgu.CV.CvEnum.ColorConversion.Hsv2Bgr);
+                outputBox1.CurrentImage = newMat.Clone();
             }
-            else if(comboBox1.Text == "BGR" && comboBox2.Text == "HSV")
+            else if (comboBox1.Text == "BGR" && comboBox2.Text == "HSV")
             {
-                using Mat newMat = new();
                 CvInvoke.CvtColor(inputBox1.CurrentImage, newMat, Emgu.CV.CvEnum.ColorConversion.Bgr2Hsv);
                 outputBox1.CurrentImage = newMat.Clone();
-
-                //Mat[] channels = outputBox1.CurrentImage.Split();
-                //var max = channels[0].ToImage<Gray, byte>().Data.Cast<byte>().Max();
-
             }
-            else if(comboBox1.Text == "BGR" && comboBox2.Text == "GREYSCALE") 
+            else if (comboBox1.Text == "BGR" && comboBox2.Text == "GREYSCALE")
             {
-                
-                CvInvoke.CvtColor(inputBox1.CurrentImage, outputBox1.CurrentImage, Emgu.CV.CvEnum.ColorConversion.Bgr2Gray);
+                CvInvoke.CvtColor(inputBox1.CurrentImage, newMat, Emgu.CV.CvEnum.ColorConversion.Bgr2Gray);
+                outputBox1.CurrentImage = newMat.Clone();
+            }
+            else if (comboBox1.Text == "GREYSCALE" && comboBox2.Text == "BGR")
+            {
+                CvInvoke.CvtColor(inputBox1.CurrentImage, newMat, Emgu.CV.CvEnum.ColorConversion.Gray2Bgr);
+                outputBox1.CurrentImage = newMat.Clone();
+            }
+            else if (comboBox1.Text == "HSV" && comboBox2.Text == "GREYSCALE")
+            {
+                using Mat secondMat = new();
+                CvInvoke.CvtColor(inputBox1.CurrentImage, newMat, Emgu.CV.CvEnum.ColorConversion.Hsv2Bgr);
+                CvInvoke.CvtColor(newMat, secondMat, Emgu.CV.CvEnum.ColorConversion.Bgr2Gray);
+                outputBox1.CurrentImage = secondMat.Clone();
+            }
+            else if (comboBox1.Text == "GREYSCALE" && comboBox2.Text == "HSV")
+            {
+                using Mat secondMat = new();
+                CvInvoke.CvtColor(inputBox1.CurrentImage, newMat, Emgu.CV.CvEnum.ColorConversion.Gray2Bgr);
+                CvInvoke.CvtColor(newMat, secondMat, Emgu.CV.CvEnum.ColorConversion.Bgr2Hsv);
+                outputBox1.CurrentImage = secondMat.Clone();
             }
             else
             {

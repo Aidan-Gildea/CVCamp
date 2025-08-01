@@ -55,25 +55,21 @@ namespace CoolProject.Controls
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (comboBox1.Text.Length > 0)
+            foreach (InputBox i in inputs)
             {
-                if (availableMats.ContainsKey(comboBox1.Text))
-                {
-                    CurrentImage = availableMats[comboBox1.Text];
-                }
-
+                i.SubscribeToOutputs();
             }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (!currentImage.Equals(new Mat()))
-            {
-                enabled = true;
+            //if (!currentImage.Equals(new Mat()))
+            //{
+            //    enabled = true;
 
 
-            }
-            imageBox1.Image = CurrentImage;
+            //}
+            //imageBox1.Image = CurrentImage;
         }
 
         private void comboBox1_DropDown(object sender, EventArgs e) // update items whenever you open dropdown
@@ -93,6 +89,8 @@ namespace CoolProject.Controls
         {
             foreach(OutputBox o in outputs) 
             {
+                if (o.Parent.Equals(Parent)) continue;
+                if (o.CurrentName != comboBox1.Text) continue; 
                 o.ImageChanged += CallImageChanged;
             }
         }

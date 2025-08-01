@@ -43,33 +43,36 @@ namespace CoolProject.Controls
         {
             if (inputBox1.Enabled && inputBox2.Enabled)
             {
-
+                using Mat newMat = new();
                 switch (comboBox1.Text)
                 {
                     case "AND":
-                        CvInvoke.BitwiseAnd(inputBox1.CurrentImage, inputBox2.CurrentImage, outputBox1.CurrentImage);
+                        CvInvoke.BitwiseAnd(inputBox1.CurrentImage, inputBox2.CurrentImage, newMat);
+                        outputBox1.CurrentImage = newMat.Clone();
                         break;
                     case "OR":
-                        CvInvoke.BitwiseOr(inputBox1.CurrentImage, inputBox2.CurrentImage, outputBox1.CurrentImage);
+                        CvInvoke.BitwiseOr(inputBox1.CurrentImage, inputBox2.CurrentImage, newMat);
+                        outputBox1.CurrentImage = newMat.Clone();
                         break;
                     case "XOR":
-                        CvInvoke.BitwiseXor(inputBox1.CurrentImage, inputBox2.CurrentImage, outputBox1.CurrentImage);
+                        CvInvoke.BitwiseXor(inputBox1.CurrentImage, inputBox2.CurrentImage, newMat);
+                        outputBox1.CurrentImage = newMat.Clone();
                         break;
-
                     case "ADD":
-                        CvInvoke.Add(inputBox1.CurrentImage, inputBox2.CurrentImage, outputBox1.CurrentImage);
+                        CvInvoke.Add(inputBox1.CurrentImage, inputBox2.CurrentImage, newMat);
+                        outputBox1.CurrentImage = newMat.Clone();
                         break;
-
                     case "SUBTRACT":
-                        CvInvoke.Subtract(inputBox1.CurrentImage, inputBox2.CurrentImage, outputBox1.CurrentImage);
+                        CvInvoke.Subtract(inputBox1.CurrentImage, inputBox2.CurrentImage, newMat);
+                        outputBox1.CurrentImage = newMat.Clone();
                         break;
-
                     case "MULTIPLY":
-                        CvInvoke.Multiply(inputBox1.CurrentImage, inputBox2.CurrentImage, outputBox1.CurrentImage);
+                        CvInvoke.Multiply(inputBox1.CurrentImage, inputBox2.CurrentImage, newMat);
+                        outputBox1.CurrentImage = newMat.Clone();
                         break;
-
                     case "DIVIDE":
-                        CvInvoke.Divide(inputBox1.CurrentImage, inputBox2.CurrentImage, outputBox1.CurrentImage);
+                        CvInvoke.Divide(inputBox1.CurrentImage, inputBox2.CurrentImage, newMat);
+                        outputBox1.CurrentImage = newMat.Clone();
                         break;
                     default:
                         return;

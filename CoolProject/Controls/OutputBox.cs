@@ -20,6 +20,7 @@ namespace CoolProject.Controls
 
         private string previousName = null;
 
+        public string CurrentName => textBox1.Text;
         public Mat CurrentImage
         {
             get => currentImage;

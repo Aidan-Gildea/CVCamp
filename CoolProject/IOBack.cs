@@ -28,12 +28,28 @@ namespace CoolProject
             }
         }
 
+        public CVIOBase myParent 
+        {
+            get;
+            set; 
+        }
+
         protected Mat currentImage = new(); // consider splitting into input and output so that mat can be public
         protected bool enabled = false;
 
         private void InputOutputBack_Load(object sender, EventArgs e)
         {
             AutoSize = false;
+
+            if(Parent is CVIOBase parent)
+            {
+                myParent = parent;
+            }
+            else
+            {
+                //throw new Exception("Parent must be of type CVIOBase");
+            }
+
 
             if (this is OutputBox oBox)
             {
@@ -49,6 +65,8 @@ namespace CoolProject
                 inputs.Add(iBox); // subscribing the input boxes to the output boxes
                 iBox.SubscribeToOutputs();
             }
+
+            
         }
         public void UpdateName(object sender, OutputNameMatHandler e)
         {
@@ -60,6 +78,8 @@ namespace CoolProject
                 availableMats.Remove(e.PreviousName);
             }
             availableMats.Add(e.CurrentName, e.Mat);
+
+            
         }
     }
 }

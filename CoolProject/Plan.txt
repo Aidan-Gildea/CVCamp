@@ -17,3 +17,5 @@ For the Add of the outputBox, you have the event outputNameChanged<OutputNameCha
 that holds oldname, newname and mat. This is so that it can assign the newname and kill the old one in the dict. 
 
 need to make sure inputs subscribe to output things 
+
+Subscribe inputs to outputs only when needed, and also pass names around like mats. :)

@@ -24,14 +24,9 @@ namespace CoolProject.Controls
 
         
         
-        public bool isEnabled
-        {
-            get => !currentImage.Equals(new Mat());
-            private set
-            {
-                enabled = value;
-            }
-        }
+        public bool isEnabled => !currentImage.Equals(new Mat());
+
+
 
         public CVIOBase()
         {

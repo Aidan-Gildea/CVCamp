@@ -50,13 +50,16 @@ namespace CoolProject.Controls
             comboBox1.Enabled = false;
             comboBox1.Items.Add(new BlurType((val) => CvInvoke.Blur(inputBox1.CurrentImage, outputBox1.CurrentImage, new(val, val), new(-1, -1)), "BLUR"));
             comboBox1.Items.Add(new BlurType((val) => CvInvoke.MedianBlur(inputBox1.CurrentImage, outputBox1.CurrentImage, val), "MedianBlur"));
+
+            inputBox1.ImageChanged += comboBox1_SelectedIndexChanged;
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(inputBox1.CurrentImage != null) 
+            if(inputBox1.isEnabled) 
             {
                 BlurType blurtype = (BlurType)comboBox1.SelectedItem;
+                if (blurtype == null) return;
                 blurtype.action((int)numericUpDown1.Value);
             }
         }
