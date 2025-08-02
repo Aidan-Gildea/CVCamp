@@ -79,5 +79,10 @@ namespace CoolProject
         {
             flowLayoutPanel2.Controls.Add(new InputBox());
         }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            flowLayoutPanel2.Controls.Add(new DilateErode());
+        }
     }
 }

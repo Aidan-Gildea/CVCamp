@@ -26,6 +26,7 @@ namespace CoolProject.Controls
             get => currentImage;
             set
             {
+                currentImage?.Dispose();
                 currentImage = value;
                 imageBox1.Image = currentImage;
 
@@ -62,6 +63,7 @@ namespace CoolProject.Controls
 
 
             }
+             // Dispose of the previous image to free resources
             imageBox1.Image = currentImage;
         }
 

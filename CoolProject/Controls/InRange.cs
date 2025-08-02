@@ -46,16 +46,16 @@ namespace CoolProject.Controls
             InitializeComponent();
         }
         
-        private void timer1_Tick(object sender, EventArgs e)
+        private void DoWork(object? sender, EventArgs e) 
         {
-            int[] values = 
-                { 
-                slider1.Value, 
-                slider2.Value, 
-                slider3.Value, 
-                slider4.Value, 
-                slider5.Value, 
-                slider6.Value 
+            int[] values =
+                    {
+                slider1.Value,
+                slider2.Value,
+                slider3.Value,
+                slider4.Value,
+                slider5.Value,
+                slider6.Value
             };
 
             if (!inputBox1.isEnabled) return;
@@ -79,6 +79,10 @@ namespace CoolProject.Controls
                 (ScalarArray)new MCvScalar(values[3], values[4], values[5]),
                 output);
             outputBox1.CurrentImage = output;
+        }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            
 
 
         }
@@ -107,6 +111,9 @@ namespace CoolProject.Controls
             sliders.Add(slider4);
             sliders.Add(slider5);
             sliders.Add(slider6);
+
+            inputBox1.ImageChanged += DoWork;
         }
+
     }
 }

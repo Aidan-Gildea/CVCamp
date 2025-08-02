@@ -48,8 +48,9 @@ namespace CoolProject.Controls
         private void BlurOperation_Load(object sender, EventArgs e)
         {
             comboBox1.Enabled = false;
-            comboBox1.Items.Add(new BlurType((val) => CvInvoke.Blur(inputBox1.CurrentImage, outputBox1.CurrentImage, new(val, val), new(-1, -1)), "BLUR"));
+            comboBox1.Items.Add(new BlurType((val) => CvInvoke.Blur(inputBox1.CurrentImage, outputBox1.CurrentImage, new(val, val), new(-1, -1)), "StandardBlur"));
             comboBox1.Items.Add(new BlurType((val) => CvInvoke.MedianBlur(inputBox1.CurrentImage, outputBox1.CurrentImage, val), "MedianBlur"));
+            comboBox1.Items.Add(new BlurType((val) => CvInvoke.StackBlur(inputBox1.CurrentImage, outputBox1.CurrentImage, new(val, val)), "StackBlur"));
 
             inputBox1.ImageChanged += comboBox1_SelectedIndexChanged;
         }

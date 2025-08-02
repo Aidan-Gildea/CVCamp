@@ -111,6 +111,7 @@ namespace CoolProject.Controls
             {
                 if (availableMats.ContainsKey(comboBox1.Text))
                 {
+                    CurrentImage?.Dispose();
                     CurrentImage = availableMats[comboBox1.Text];
                 }
 
