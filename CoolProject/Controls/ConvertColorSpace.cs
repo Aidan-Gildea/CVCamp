@@ -60,6 +60,7 @@ namespace CoolProject.Controls
             {
                 MessageBox.Show("Unsupported color space conversion.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
 
 
